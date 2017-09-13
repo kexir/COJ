@@ -12,7 +12,6 @@ declare var ace: any;
 export class EditorComponent implements OnInit {
 
   editor: any;
-  state: string = 'false';
 
   public languages: string[] = ['Java', 'C++', 'Python'];
   language: string = 'Java'; // default
@@ -98,8 +97,7 @@ export class EditorComponent implements OnInit {
       user_code: userCode,
       lang: this.language.toLowerCase()
     };
-    this.state = 'true';
     this.data.buildAndRun(data)
-      .then(res => {this.output = res.text; this.state = 'false'});
+      .then(res => {this.output = res.text;});
   }
 }
